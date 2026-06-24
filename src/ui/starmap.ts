@@ -34,8 +34,11 @@ export class StarMapRenderer {
 
   private handleClick(e: MouseEvent): void {
     const rect = this.canvas.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
+    // Scale from CSS display size back to logical canvas coords
+    const scaleX = this.canvas.width / rect.width;
+    const scaleY = this.canvas.height / rect.height;
+    const x = (e.clientX - rect.left) * scaleX;
+    const y = (e.clientY - rect.top) * scaleY;
     // Find clicked system
     // We need access to systems here — passed via render call stored externally
     if (this._lastState) {

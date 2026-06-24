@@ -1,3 +1,4 @@
+import './style.css';
 import { createInitialState } from './game/state';
 import { processTurn } from './game/engine';
 import { StarMapRenderer } from './ui/starmap';
@@ -17,6 +18,18 @@ const eventDesc = document.getElementById('event-description')!;
 const eventChoices = document.getElementById('event-choices')!;
 const gameOverScreen = document.getElementById('game-over')!;
 const gameOverMsg = document.getElementById('game-over-message')!;
+
+// Scale canvas to fit mobile screens while preserving logical coordinates
+function resizeCanvas(): void {
+  const LOGICAL_W = 800;
+  const LOGICAL_H = 560;
+  const maxW = Math.min(window.innerWidth, LOGICAL_W);
+  const scale = maxW / LOGICAL_W;
+  mapCanvas.style.width = `${LOGICAL_W * scale}px`;
+  mapCanvas.style.height = `${LOGICAL_H * scale}px`;
+}
+resizeCanvas();
+window.addEventListener('resize', resizeCanvas);
 
 const mapRenderer = new StarMapRenderer(mapCanvas, (systemId) => {
   state.selectedSystemId = systemId;
