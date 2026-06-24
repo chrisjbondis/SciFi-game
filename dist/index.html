@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>We Are Bob — Bobiverse Strategy</title>
+  <script type="module" crossorigin src="/assets/index-CERQBWiB.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-sc2DqVUU.css">
+</head>
+<body>
+  <div id="app">
+    <!-- Top bar -->
+    <header id="topbar">
+      <div id="game-title">WE ARE BOB</div>
+      <div id="turn-label">Turn 1</div>
+      <button id="end-turn-btn">End Turn [Space]</button>
+    </header>
+
+    <!-- Main layout -->
+    <div id="main-layout">
+      <!-- Star map -->
+      <div id="map-container">
+        <canvas id="starmap" width="800" height="560"></canvas>
+      </div>
+
+      <!-- Side panel -->
+      <div id="side-panel-wrapper">
+        <div id="side-panel"></div>
+      </div>
+    </div>
+
+    <!-- Event log -->
+    <div id="log-container">
+      <div id="log-header">Event Log</div>
+      <div id="event-log"></div>
+    </div>
+  </div>
+
+  <!-- Event modal -->
+  <div id="event-modal" class="hidden">
+    <div id="event-modal-inner">
+      <h2 id="event-title"></h2>
+      <pre id="event-description"></pre>
+      <div id="event-choices"></div>
+    </div>
+  </div>
+
+  <!-- Game over screen -->
+  <div id="game-over" class="hidden">
+    <div id="game-over-inner">
+      <h2 id="game-over-heading">Mission Complete</h2>
+      <pre id="game-over-message"></pre>
+      <button id="restart-btn">Play Again</button>
+    </div>
+  </div>
+
+</body>
+</html>
